@@ -1,0 +1,37 @@
+### Create New Account
+POST http://localhost:8080/accounts
+
+
+### Get an Existing Account
+GET http://localhost:8080/accounts/1
+
+
+### Top Up Money (Deposit)
+POST http://localhost:8080/accounts/1/topup
+Content-Type: application/json
+
+{
+  "amount": 150000
+}
+
+
+### Create a New Withdrawal Transaction
+POST http://localhost:8080/accounts/1/transactions
+Content-Type: application/json
+
+{
+  "amount": 25000,
+  "description": "Shopping at merchant"
+}
+
+
+### Get All Transaction for Specific Account
+GET http://localhost:8080/accounts/1/transactions
+
+
+### Pay an Unpaid/Pending Withdrawal Transaction
+PATCH http://localhost:8080/accounts/1/transactions/2/pay
+
+
+### Refund a Paid Withdrawal Transaction
+PATCH http://localhost:8080/accounts/1/transactions/2/refund
